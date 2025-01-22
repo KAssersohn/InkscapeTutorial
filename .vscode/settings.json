@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.linux": {
+        "R_LIBS_USER": "/home/kassersohn/R/x86_64-pc-linux-gnu-library/4.3"
+    }
+}

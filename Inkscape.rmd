@@ -1,0 +1,92 @@
+--- 
+title: "Introduction to Vector Graphics<br>
+         for Science-n-Stuff"
+author: "Kat Assersohn"
+date: "`r format(Sys.Date(), '%d-%m-%Y')`"
+output: 
+    html_document:
+        theme: 
+            bootswatch: solar
+---
+
+## What are vector graphics and why should I care?
+
+While pixelated (bitmap) images are fantastic at conveying photorealism, they are not always the best choice for displaying detailed and
+consistent graphical information:
+
+- **We cannot scale bitmap images without losing precision:**<br>
+Bitmap images are made up of a fixed number of pixels, so they only look their best at a specific size and resolution and become
+pixelated/blurry when resized.
+
+- **Bitmaps are often large and resource-hungry:**<br>
+Every pixel in a bitmap image is associated with a separate piece of memory in the computer. This means that detailed images can be very
+large, difficult to edit and share, and their quality is dependent on the software and hardware used to view them. 
+
+##### So what's so special about vectors? 
+- **Vectors are infinitely scalable with no loss of quality**<br>
+Instead of containing a fixed number of square pixels, vector graphics store information about objects as points on a plane,
+connected by mathematical equations that describe their shape and relationships to one another.
+
+- **Files are much smaller**<br>
+Vector graphics can be more easily edited, shared and stored than bitmap images.
+
+- **The image always looks the same, on screen or printed, regardless of the size or resolution**<br>
+All this makes them a great choice for precise/detailed plots, schematics, infographics, graphical abstracts and posters**
+
+```{r include_svg, echo=FALSE, results='asis'}
+htmltools::tags$div(
+  style = "display: flex; justify-content: space-around; margin-bottom: 20px;",  # Add margin below the div
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/ZF.jpg", 
+                        alt = "Zebra Finch Male", 
+                        style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
+    htmltools::tags$figcaption("Bitmap image of a zebra finch")
+  ),
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/Pixelated zebra finch.jpg", 
+                        alt = "Zebra Finch Male Zoomed", 
+                        style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
+    htmltools::tags$figcaption("scaled bitmap image of a zebra finch")
+  )
+)
+
+htmltools::tags$div(
+  style = "display: flex; justify-content: space-around;",
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/zebrafinchmale.svg", 
+                        alt = "Zebra Finch Male", 
+                        style = "width: 50%; height: auto;"),
+    htmltools::tags$figcaption("Vector drawing of a zebra finch")
+  ),
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/zebrafinchmaleZOOM.svg", 
+                        alt = "Zebra Finch Male Zoomed", 
+                        style = "width: 100%; height: auto;"),
+    htmltools::tags$figcaption("scaled vector drawing of a zebra finch")
+  )
+)
+```
+## What's the catch?
+
+It requires a little bit of practice to get to grips with vector graphics software, but you don't need to be 
+an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics:
+
+**File types**<br>
+We have a few options, but most commonly you'll see .svg (Scalable Vector Graphics). PDFs can also be vector-based (but not always). Think
+about how when you zoom into a pdf file the text remains crisp and clear, that's because it's a vector! Another common file type is .eps (Encapsulated PostScript). .EPS in my experience
+is a favourite of journals because it's so easily editable and compatible with most design software. <br>
+
+**Reproducibility**<br>
+You can easily save plots from R as vectors, in VSCode files can be directly saved as svg files from the viewing pane. In RStudio you can use ggsave.
+We might want to reproduce our plots as infographics or adjust them for posters or presentations, in which case you may wish to edit them using a vector graphics software.
+It's important to bear in mind though, that the more heavily edited a plot is using a vector graphics software, the less reproducible it is. Before editing a plot 
+maybe ask yourself whether a coding solution might be a better option first! 
+
+**Colour models**<br>
+The two main types of colour models are RGB (Red, Green, Blue) (used primarily for digital display) and CMYK (Cyan, Magenta, Yellow, Black) (used primarily
+for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa.
+Which to choose for both print and screen? There isn't an obvious answer to this question, but I usually
+create the image in RGB first. This allows you to take advantage of the wider color gamut for digital displays. 
+Just remember that before printing, you might want to convert the image to CMYK to ensure accurate colour reproduction.
+
+**Which software should I use?**<br>
