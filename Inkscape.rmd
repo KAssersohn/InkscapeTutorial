@@ -89,4 +89,6 @@ Which to choose for both print and screen? There isn't an obvious answer to this
 create the image in RGB first. This allows you to take advantage of the wider color gamut for digital displays. 
 Just remember that before printing, you might want to convert the image to CMYK to ensure accurate colour reproduction.
 
+**So what kind of things can I create with a vector graphics software?**
+
 **Which software should I use?**<br>
