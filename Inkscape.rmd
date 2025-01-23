@@ -37,13 +37,13 @@ All this makes them a great choice for precise/detailed plots, schematics, infog
 htmltools::tags$div(
   style = "display: flex; justify-content: space-around; margin-bottom: 20px;",  # Add margin below the div
   htmltools::tags$figure(
-    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/ZF.jpg", 
+    htmltools::tags$img(src = "images/ZF.jpg", 
                         alt = "Zebra Finch Male", 
                         style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
     htmltools::tags$figcaption("Bitmap image of a zebra finch")
   ),
   htmltools::tags$figure(
-    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/Pixelated zebra finch.jpg", 
+    htmltools::tags$img(src = "https://github.com/KAssersohn/InkscapeTutorial/blob/main/images/Pixelated%20zebra%20finch.jpg", 
                         alt = "Zebra Finch Male Zoomed", 
                         style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
     htmltools::tags$figcaption("scaled bitmap image of a zebra finch")
@@ -53,13 +53,13 @@ htmltools::tags$div(
 htmltools::tags$div(
   style = "display: flex; justify-content: space-around;",
   htmltools::tags$figure(
-    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/zebrafinchmale.svg", 
+    htmltools::tags$img(src = "images/zebrafinchmale.svg", 
                         alt = "Zebra Finch Male", 
                         style = "width: 50%; height: auto;"),
     htmltools::tags$figcaption("Vector drawing of a zebra finch")
   ),
   htmltools::tags$figure(
-    htmltools::tags$img(src = "/home/kassersohn/repos/InkscapeTutorial/Images/zebrafinchmaleZOOM.svg", 
+    htmltools::tags$img(src = "images/zebrafinchmaleZOOM.svg", 
                         alt = "Zebra Finch Male Zoomed", 
                         style = "width: 100%; height: auto;"),
     htmltools::tags$figcaption("scaled vector drawing of a zebra finch")
