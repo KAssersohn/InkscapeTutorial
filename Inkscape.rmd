@@ -75,7 +75,8 @@ an artist or designer to make use of these tools. There are some considerations 
 - Another common file type is .eps (Encapsulated PostScript). .EPS in my experience is a favourite of journals because it's so easily editable and compatible with most design software. <br>
 
 <div class="alert alert-info">
-<strong>Tip!</strong> If you're working in Illustrator, files will be .AI natively, and if you're working in Inkscape it will be .svg. I recommend you always keep a copy of your file in the native format, and save exports as a new version, just incase something goes wrong down the line.
+<strong>Tip!</strong> If you're working in Illustrator, files will be .ai natively, and if you're working in Inkscape it will be .svg. I recommend you always keep a copy of your file in the native format of the software it was created in, and save any exports as a new version, just incase something goes wrong down the line.
+It's easy to export a .ai file into a .eps, but not necessarily the other way around... 
 </div>
 
 #### **Reproducibility**<br>
@@ -117,4 +118,4 @@ I'm going to introduce you to Inkscape today, because I believe it's the better 
 
 **So what kind of things can I create with a vector graphics software?**
 
-**Converting between colour models**
+**The Inkscape interface**
