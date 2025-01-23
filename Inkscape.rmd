@@ -5,8 +5,6 @@ author: "Kat Assersohn"
 date: "`r format(Sys.Date(), '%d-%m-%Y')`"
 output: 
     html_document:
-        theme: 
-            bootswatch: solar
 ---
 
 ## What are vector graphics and why should I care?
@@ -71,24 +69,52 @@ htmltools::tags$div(
 It requires a little bit of practice to get to grips with vector graphics software, but you don't need to be 
 an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics:
 
-**File types**<br>
-We have a few options, but most commonly you'll see .svg (Scalable Vector Graphics). PDFs can also be vector-based (but not always). Think
-about how when you zoom into a pdf file the text remains crisp and clear, that's because it's a vector! Another common file type is .eps (Encapsulated PostScript). .EPS in my experience
-is a favourite of journals because it's so easily editable and compatible with most design software. <br>
+#### **File types**<br> 
+- Most commonly you'll see .svg (Scalable Vector Graphics). (Svg's are XML based which makes them easy to render in most web browsers for quick viewing!)
+- PDFs can also be vector-based (but not always). Think about how when you zoom into a pdf file the text always remains crisp and clear!
+- Another common file type is .eps (Encapsulated PostScript). .EPS in my experience is a favourite of journals because it's so easily editable and compatible with most design software. <br>
 
-**Reproducibility**<br>
-You can easily save plots from R as vectors, in VSCode files can be directly saved as svg files from the viewing pane. In RStudio you can use ggsave.
-We might want to reproduce our plots as infographics or adjust them for posters or presentations, in which case you may wish to edit them using a vector graphics software.
-It's important to bear in mind though, that the more heavily edited a plot is using a vector graphics software, the less reproducible it is. Before editing a plot 
-maybe ask yourself whether a coding solution might be a better option first! 
+<div class="alert alert-info">
+<strong>Tip!</strong> If you're working in Illustrator, files will be .AI natively, and if you're working in Inkscape it will be .svg. I recommend you always keep a copy of your file in the native format, and save exports as a new version, just incase something goes wrong down the line.
+</div>
 
-**Colour models**<br>
+#### **Reproducibility**<br>
+You can easily save plots from R as vectors that can then be edited in a vector graphics software. In RStudio you can use ggsave, in vscode you can save plots directly as svg files from the viewing pane. 
+
+It's important to bear in mind though, that the more heavily manually edited a plot is, the less reproducible it is. Before editing a plot 
+it's worth asking yourself whether a coding solution might be a better option first! 
+
+#### **Colour models**<br>
 The two main types of colour models are RGB (Red, Green, Blue) (used primarily for digital display) and CMYK (Cyan, Magenta, Yellow, Black) (used primarily
 for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa.
-Which to choose for both print and screen? There isn't an obvious answer to this question, but I usually
-create the image in RGB first. This allows you to take advantage of the wider color gamut for digital displays. 
+
+![RGB and CMYK colour modes](https://cdn.firespring.com/images/1bc97d7d-1c72-4e08-9c54-f7e5d38d8d48.jpg)
+
+<br><br>
+Which to choose for both print and screen? There isn't an obvious answer but I usually
+create the image in RGB first because of the wider choice of colours available for digital displays. 
 Just remember that before printing, you might want to convert the image to CMYK to ensure accurate colour reproduction.
+
+<div class="alert alert-info">
+<strong>Note!</strong> While Illustrator has a built in engine for converting between colour models, in Inkscape it's a bit more tricky, and you might have to use a different
+software - I think Scribus is the most commonly used free option.
+</div>
+
+**Which software should I use?**<br>
+
+There are countless options! I've dabbled in a few but the two most popular are probably Inkscape and Illustrator. They both have their pros and cons and I've listed a few below:
+
+| Inkscape    | Illustrator |
+| ----------- | ----------- |
+| Very accessible (free and open source) with community driven updates      | Requires a licences subscription with Adobe (free for UoS staff and students upon request, but expensive otherwise)   |
+| .svg native format. May struggle with some complex file types   | .ai native format, more flexible at handling complex file types. Seamless workflow with other Adobe software     |
+| RGB native colour model, external software needed for colour model conversion | RGB or CMYK colour models easily specified with a built in colour model conversion engine |
+| Can have stability issues, but has fewer system requirements | Pretty stable, however can require a huge amount of RAM for big files and won't run well on old/certain systems |
+| Lacks some tools and features, however realistically it has everything you need for simple graphics and posters | Has a lot of specialised tools and functions. The industry standard |
+| Many community resources out there for learning, with a shallower learning curve than Illlustrator | Steeper learning curve, so not as suitable for beginners, fewer community resources |
+
+I'm going to introduce you to Inkscape today, because I believe it's the better choice for beginners and it likely has everything you need to produce beautiful plots, posters, scientific drawings and schematics. 
 
 **So what kind of things can I create with a vector graphics software?**
 
-**Which software should I use?**<br>
+**Converting between colour models**
