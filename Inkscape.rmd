@@ -9,12 +9,12 @@ output:
 
 ## What are vector graphics and why should I care?
 
-While pixelated (bitmap) images are fantastic at conveying photorealism, they are not always the best choice for displaying detailed and
+Pixelated (bitmap) images are fantastic at conveying photorealism, but they are not always the best choice for displaying detailed and
 consistent graphical information:
 
 - **We cannot scale bitmap images without losing precision:**<br>
 Bitmap images are made up of a fixed number of pixels, so they only look their best at a specific size and resolution and become
-pixelated/blurry when resized.
+pixelated/blurry when resized (they can be made smaller, but not bigger).
 
 - **Bitmaps are often large and resource-hungry:**<br>
 Every pixel in a bitmap image is associated with a separate piece of memory in the computer. This means that detailed images can be very
@@ -28,8 +28,8 @@ connected by mathematical equations that describe their shape and relationships 
 - **Files are much smaller**<br>
 Vector graphics can be more easily edited, shared and stored than bitmap images.
 
-- **The image always looks the same, on screen or printed, regardless of the size or resolution**<br>
-All this makes them a great choice for precise/detailed plots, schematics, infographics, graphical abstracts and posters**
+- **The image always looks the same, on screen or printed, regardless of the size or resolution**
+All this makes them a great choice for precise/detailed plots, schematics, infographics, graphical abstracts and posters.
 
 ```{r include_svg, echo=FALSE, results='asis'}
 htmltools::tags$div(
