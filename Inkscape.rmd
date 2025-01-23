@@ -43,7 +43,7 @@ htmltools::tags$div(
     htmltools::tags$figcaption("Bitmap image of a zebra finch")
   ),
   htmltools::tags$figure(
-    htmltools::tags$img(src = "https://github.com/KAssersohn/InkscapeTutorial/blob/main/images/Pixelated%20zebra%20finch.jpg", 
+    htmltools::tags$img(src = "https://github.com/KAssersohn/InkscapeTutorial/blob/main/images/PixelatedZF.jpg", 
                         alt = "Zebra Finch Male Zoomed", 
                         style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
     htmltools::tags$figcaption("scaled bitmap image of a zebra finch")
