@@ -4,9 +4,20 @@ title: "Introduction to Vector Graphics<br>
 author: "Kat Assersohn"
 date: "`r format(Sys.Date(), '%d-%m-%Y')`"
 output: 
-    html_document:
+  html_document:
+    code_folding: show
+    theme:
+      bg: "#202123"
+      fg: "#B8BCC2"
+      primary: "#EA80FC"
+      secondary: "#00DAC6"
+      heading_font:
+        google: Proza Libre
 ---
-
+```{r setup, include=FALSE}
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+```
 ## What are vector graphics and why should I care?
 
 Pixelated (bitmap) images are fantastic at conveying photorealism, but they are not always the best choice for displaying detailed and
@@ -31,7 +42,11 @@ Vector graphics can be more easily edited, shared and stored than bitmap images.
 - **The image always looks the same, on screen or printed, regardless of the size or resolution**
 All this makes them a great choice for precise/detailed plots, schematics, infographics, graphical abstracts and posters.
 
-```{r include_svg, echo=FALSE, results='asis'}
+
+##  {.tabset .tabset-pills}
+
+### Bitmap image of a zebra finch
+```{r, results='asis', echo=FALSE}
 htmltools::tags$div(
   style = "display: flex; justify-content: space-around; margin-bottom: 20px;",  # Add margin below the div
   htmltools::tags$figure(
@@ -47,7 +62,10 @@ htmltools::tags$div(
     htmltools::tags$figcaption("scaled bitmap image of a zebra finch")
   )
 )
+```
 
+### Vector drawing of a zebra finch
+```{r, results='asis', echo=FALSE}
 htmltools::tags$div(
   style = "display: flex; justify-content: space-around;",
   htmltools::tags$figure(
@@ -59,7 +77,7 @@ htmltools::tags$div(
   htmltools::tags$figure(
     htmltools::tags$img(src = "Images/zebrafinchmaleZOOM.svg", 
                         alt = "Zebra Finch Male Zoomed", 
-                        style = "width: 100%; height: auto;"),
+                        style = "width: 90%; height: auto;"),
     htmltools::tags$figcaption("scaled vector drawing of a zebra finch")
   )
 )
