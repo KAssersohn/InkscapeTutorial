@@ -134,6 +134,69 @@ There are countless options! I've dabbled in a few but the two most popular are 
 
 I'm going to introduce you to Inkscape today, because I believe it's the better choice for beginners and it likely has everything you need to produce beautiful plots, posters, scientific drawings and schematics. 
 
-**So what kind of things can I create with a vector graphics software?**
+#### **So what kind of things can I create with a vector graphics software?**
 
-**The Inkscape interface**
+Almost any type of graphic you can imagine.. but most relevant to us as scientists:
+
+- scientific drawings/diagrams and schematics
+- Graphical abstracts
+- Posters
+- Graphics for plot illustration 
+- Plot edits and annotations
+- Accurate plot simplification (for science communication, teaching or presentations)
+- etc...etc...
+
+#### **The Inkscape interface** 
+Note this is not an exhaustive tutorial, but just a list of the most important tools and features I think you'll need to get started
+
+## Setting up document properties:
+
+- Page format
+- Page orientation
+- Guides (create guides around page is handy)
+- Metadata
+- Licence (if needed)
+- Resize to content (useful to remember this feature but don't worry about it for now)
+
+## Moving about:
+
+- Zoom in and out either with the zoom tool (bottom right), or ctrl+scroll
+- Move the page with space+click and drag, or ctrl+right click and drag
+- Rotate the page with the rotate tool (bottom right)
+
+## **The main interface:**
+![Inkscape interface](https://inkscape-manuals.readthedocs.io/en/latest/_images/interface_areas.png)
+From the Inkscape manual
+
+**Toolbox:** Tool selection
+
+**Working page area:** You can use the canvas outside but it won't be rendered in the final export
+
+**Docking area:** Dialogs for specific tool functions
+
+**Commands bar:** Quick access to common commands
+
+**Snap controls:** Useful for aligning objects but can be irritating. I recommend turning snapping off to start with
+
+**Palette:** Basic usage for changing object fill (shift and left-click for stroke/outline). Change palette on the right
+
+**Tool control bar:** More adjustable options for the selected tool
+
+## **Layers**
+
+Future you will thank you for taking the time to organise objects into layers! 
+
+You can shift+select multiple objects, then right click and group them to move and adjust objects together, and gather them under the same layer controls. 
+
+```{r, results='asis', echo=FALSE}
+htmltools::includeHTML("Images/Layers.svg")
+```
+
+#### **Exporting your work**
+
+The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
+You can't go wrong saving your work at 600DPI.. but it's worth checking journal requirement first. 
+
+There is sometimes a width and height limit for your work as well, best to check this when setting up document properties but it's generally easy to rescale your work down the line if you need to.
+
+Journals prefer .eps files for final submission, but first submissions usually have more relaxed preferences - again, check journal specifications. And for your own sanity **save a copy of your work in the native format**. 
