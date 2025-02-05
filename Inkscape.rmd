@@ -166,8 +166,7 @@ Note this is not an exhaustive tutorial, but just a list of the most important t
 - Rotate the page with the rotate tool (bottom right under the palette)
 
 #### **The main interface:**
-![Inkscape interface](https://inkscape-manuals.readthedocs.io/en/latest/_images/interface_areas.png)
-From the Inkscape manual
+![](Images/InkscapeInterface.svg)
 
 **Toolbox:** Tool selection
 
@@ -354,8 +353,8 @@ htmltools::HTML('
         <div>
           <ul style="list-style-type: disc; padding-left: 20px;">
             <li style="margin-bottom: 10px;">Add a new layer (numerous ways, easiest is just Layer > Add Layer, or through the Layers and Objects tab in the docking area), give it a name.</li>
-            <li style="margin-bottom: 10px;">Enable snapping, and create a background using the rectangle tool, drag it to fill the page and make it whatever colour you like (I\'m sure you\'ll change this later).</li>
-            <li style="margin-bottom: 10px;">This is a good time to check your colour model is set to CMYK (for print!), Do this in the Fill and Stroke tab in the docking area.</li>
+            <li style="margin-bottom: 10px;">Enable snapping, and create a background using the rectangle tool, drag it to fill the page and give it a nice colour.</li>
+            <li style="margin-bottom: 10px;">This is a good time to check your colour model is set to CMYK, Do this in the Fill and Stroke tab in the docking area.</li>
             <li style="margin-bottom: 10px;">Lock the layer (click the padlock icon) so you don\'t accidentally move it.</li>
             <li style="margin-bottom: 10px;">If you want to be fancy, you can give your background a gradient, just give each point on the gradient line a different colour, and play around with the gradient options in the docking area</li>
           </ul>
@@ -367,7 +366,7 @@ htmltools::HTML('
 ')
 ```
 
-### 3. Add some text and figure boxes
+### 3. Add some content boxes
 
 ```{r, results='asis', echo=FALSE}
 htmltools::HTML('
@@ -381,10 +380,10 @@ htmltools::HTML('
         <div>
           <ul style="list-style-type: disc; padding-left: 20px;">
             <li style="margin-bottom: 10px;">Add a new layer for text and figure boxes, make sure this new layer sits \'above current\'.</li>
-            <li style="margin-bottom: 10px;">Disable snapping and add some boxes using the shape tool. kbd>ctrl + D</kbd> to duplicate any shapes you like.</li>
+            <li style="margin-bottom: 10px;">Disable snapping and add some boxes using the shape tool. <kbd>ctrl + D</kbd> to duplicate any shapes you like.</li>
             <li style="margin-bottom: 10px;">Mess about with Align and Distribute in the docking area, which can help you position your boxes evenly.</li>
-            <li style="margin-bottom: 10px;">Tip: You can round shape edges by pulling the circular node on the top right corner. </li>
-            <li style="margin-bottom: 10px;">Tip: You can muck about with \'Path\' options by selecting two shapes with <kbd>shift</kbd>, and combining them (Union), using one shape to cut a hole out of another (Difference), or the opposite (Intersection). I\'ve illustrated an example here where I\'ve used the \'Difference\' option to cut shapes evenly to create a circular focal space.</li>
+            <li style="margin-bottom: 10px;">Tip: You can round the edges of a shape by pulling the circular node on the top right corner (node selection tool). </li>
+            <li style="margin-bottom: 10px;">Tip: There are loads of options for mucking about with shape paths in the \'Path\' tab in the menu bar. I\'ve used the \'Difference\' option to illustrate how you can use one shape to cut a hole out of another.</li>
             <li style="margin-bottom: 10px;">Tip: There are loads of filter options for shapes. I have illustrated the use of drop shadows here. See the \'Filters\' tab in the menu bar.</li>
           </ul>
         </div>
@@ -395,7 +394,7 @@ htmltools::HTML('
 ')
 ```
 
-### 4. Add some text boxes
+### 4. Add some sample text
 
 ```{r, results='asis', echo=FALSE}
 htmltools::HTML('
@@ -450,19 +449,104 @@ htmltools::HTML('
   
 ##
 <div class="alert alert-info">
-<strong>Tip!</strong>Like the settings you applied to one object (or text box) and want to apply it to other objects? Select the object and <kbd>ctrl + C</kbd> it, 
-then select the object you want to apply the settings to and <kbd>ctrl + shift + V</kbd>. This will apply the shapes colour, stroke and other attributes to the new object.
+<strong>Tip!</strong> If you like the settings you applied to one object and want to apply it to other objects, just select the object and copy it with <kbd>ctrl + C</kbd> it, 
+then select the object you want to apply the settings to and use <kbd>ctrl + shift + V</kbd>. This will apply the colour, stroke, font and any filters or other attributes to the new object.
 </div>
 
 ## **Become a pen tool pro**
+
+
+##  {.tabset .tabset-fade}
+
+### Using the pen tool for drawing straight lines
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenToolRectangle.svg" alt="PenTool1 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">I have found it helpful to practice tracing existing shapes to get the hang of this tool. Create a rectangle with the shape tool to start with.</li>
+            <li style="margin-bottom: 10px;">Left click in a corner to place your first node.</li>
+            <li style="margin-bottom: 10px;">Move the mouse to the next corner and left click again to place your second node.</li>
+            <li style="margin-bottom: 10px;">Repeat for the third corner and finally join up your lines by clicking on the final node.</li>
+            <li style="margin-bottom: 10px;">Delete the original shape and admire your sensational artisan rectangle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Using the pen tool for drawing curves
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenToolCircle.svg" alt="PenTool2 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">This time, we need to define the handles of the node to determine the curvature of our line.</li>
+            <li style="margin-bottom: 10px;">Try placing a node but this time keep your mouse pressed and move it slightly to drag the handle.</li>
+            <li style="margin-bottom: 10px;">Notice how the shape of your next line has changed.</li>
+            <li style="margin-bottom: 10px;">A good way to understand how this works is to practice tracing over a circle!</li>
+            <li style="margin-bottom: 10px;">There are also some useful resources for practicing. I like <a href="https://bezier.method.ac/" target="_blank">this game</a>, it is designed for Illustrator so the controls are slightly different, but the tool functions the same.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Creating more complex shapes
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/ComplexShape.svg" alt="PenTool3 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">Once you\'ve mastered the basics you can have a look at creating some more complex shapes.</li>
+            <li style="margin-bottom: 10px;">Tip: If you make a mistake, simply <kbd>delete</kbd> the last node and try again.</li>
+            <li style="margin-bottom: 10px;">Tip: To retain the shape of your previous line, but determine a new handle for the next, hold <kbd>Shift</kbd> while moving a handle.</li>
+            <li style="margin-bottom: 10px;">Tip: Use the pen tool in combination with the shape tool to easily create complex shapes, use Paths > Union to join shapes.</li>
+            <li style="margin-bottom: 10px;">Tip: If you want to customise the nodes of a shape, use Path > Object to path. Drag nodes or lines to change them</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
 
 ##  {.tabset .tabset-fade}
 
 ## **Notes on exporting your work**
 
-The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
-You can't go wrong saving your work at 600DPI.. but it's worth checking journal requirement first. 
+- The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
 
-There is sometimes a width and height limit for your work as well, best to check this when setting up document properties but it's generally easy to rescale your work down the line if you need to.
+- Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
 
-Journals prefer .eps files for final submission, but first submissions usually have more relaxed preferences - again, check journal specifications. And for your own sanity **save a copy of your work in the native format**. 
+- There is sometimes a width and height limit for your work as well. 
+
+- You should check journal requirements first.
