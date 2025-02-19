@@ -1,10 +1,13 @@
---- 
-title: "Introduction to Vector Graphics<br>
-         for Science-n-Stuff"
+---
+title: "Introduction to Vector Graphics<br>for Science-n-Stuff"
 author: "Kat Assersohn"
 date: "`r format(Sys.Date(), '%m-%Y')`"
-output: 
+output:
   html_document:
+    toc: true
+    toc_float: 
+      collapsed: false 
+    toc_depth: 4
     code_folding: show
     theme:
       bg: "#202123"
@@ -14,11 +17,13 @@ output:
       heading_font:
         google: Proza Libre
 ---
+
+
 ```{r setup, include=FALSE}
 if (requireNamespace("thematic")) 
   thematic::thematic_rmd(font = "auto")
 ```
-## What are vector graphics and why should I care?
+## **What are vector graphics and why should I care?**
 
 Pixelated (bitmap) images are fantastic at conveying photorealism, but they are not always the best choice for displaying detailed and
 consistent graphical information:
@@ -31,7 +36,8 @@ pixelated/blurry when resized (they can be made smaller, but not bigger).
 Every pixel in a bitmap image is associated with a separate piece of memory in the computer. This means that detailed images can be very
 large, difficult to edit and share, and their quality is dependent on the software and hardware used to view them. 
 
-## So what's so special about vectors? 
+#### So what's so special about vectors? 
+
 - **Vectors are scalable with no loss of quality**<br>
 Instead of containing a fixed number of square pixels, vector graphics store information about objects as points on a plane,
 connected by mathematical equations that describe their shape and relationships to one another.
@@ -83,24 +89,13 @@ htmltools::tags$div(
 )
 ```
 
-##### **What kind of things can I create with a vector graphics software?**
-
-Almost any type of graphic you can imagine.. but most relevant to us as scientists:
-
-- scientific drawings/diagrams and schematics
-- Graphical abstracts
-- Posters
-- Graphics for plot illustration 
-- Plot edits and annotations
-- Accurate plot simplification (for science communication, teaching or presentations)
-- etc...etc...
-
-## What's the catch?
+## **What's the catch?**
 
 It requires a little bit of practice to get to grips with vector graphics software, but you don't need to be 
 an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics:
 
-#### **File types**<br> 
+#### File types<br>
+
 - Most commonly you'll see .svg (Scalable Vector Graphics). (Svg's are XML based which makes them easy to render in most web browsers for quick viewing!)
 - PDFs can also be vector-based (but not always). Think about how when you zoom into a pdf file the text always remains crisp and clear!
 - Another common file type is .eps (Encapsulated PostScript). .EPS in my experience is a favourite of journals because it's so easily editable and compatible with most design software. <br>
@@ -110,13 +105,13 @@ an artist or designer to make use of these tools. There are some considerations 
 It's easy to export a .ai file into a .eps, but not necessarily the other way around... 
 </div>
 
-#### **Reproducibility**<br>
-You can easily save plots from R as vectors that can then be edited in a vector graphics software. In RStudio you can use ggsave, in vscode you can save plots directly as svg files from the viewing pane. 
+#### Reproducibility<br>
+You can easily save plots from R as vectors that can then be edited in a vector graphics software. In RStudio for example, you can use ggsave or svg() 
 
 It's important to bear in mind though, that the more heavily manually edited a plot is, the less reproducible it is. Before editing a plot 
 it's worth asking yourself whether a coding solution might be a better option first! 
 
-#### **Colour models**<br>
+#### Colour models<br>
 The two main types of colour models are RGB (Red, Green, Blue) (used primarily for digital display) and CMYK (Cyan, Magenta, Yellow, Black) (used primarily
 for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa.
 
@@ -132,7 +127,7 @@ Just remember that before printing, you might want to convert the image to CMYK 
 software - I think Scribus is the most commonly used free option.
 </div>
 
-#### **Which software should I use?**<br>
+#### Which software should I use?<br>
 
 There are countless options! I've dabbled in a few but the two most popular are probably Inkscape and Illustrator. They both have their pros and cons and I've listed a few below:
 
@@ -149,7 +144,7 @@ There are countless options! I've dabbled in a few but the two most popular are 
 
 Note this is not an exhaustive tutorial, but just a list of the most important tools and features I think you'll need to get started
 
-#### Setting up document properties:
+#### Setting up document properties
 
 - Page format
 - Page orientation
@@ -158,14 +153,14 @@ Note this is not an exhaustive tutorial, but just a list of the most important t
 - Licence (if needed)
 - Resize to content (useful to remember this feature but don't worry about it for now)
 
-#### Moving about:
+#### Moving about
 
 - Zoom in and out either with the zoom tool (bottom right), or <kbd>ctrl + scroll</kbd>
 - There are also some useful quick zoom tools in the commands bar on the right (e.g. zoom to page, zoom to selection, zoom centre view etc)
 - Drag the page around the page by pressing the scroll wheel, holding the <kbd>spacebar</kbd>, or <kbd>ctrl/shift + right click</kbd>
 - Rotate the page with the rotate tool (bottom right under the palette)
 
-#### **The main interface:**
+#### The main interface
 ![](Images/InkscapeInterface.svg)
 
 **Toolbox:** Tool selection
@@ -182,7 +177,7 @@ Note this is not an exhaustive tutorial, but just a list of the most important t
 
 **Tool control bar:** More adjustable options for the selected tool
 
-#### **Layers**
+#### Layers
 
 Future you will thank you for taking the time to organise objects into layers! 
 
@@ -190,7 +185,7 @@ You can <kbd>shift</kbd> to select multiple objects, then group them (<kbd>right
 
 ![](Images/Layers.svg)
 
-#### **Key tools**
+#### Key tools
 
 <div style= "float:right;position: relative; top: +0px;">
 ![](Images/KeyTools.svg) 
@@ -215,7 +210,7 @@ I'll show you the tools I've found most useful.
   
 - **Connector tool:** This is possibly another slightly obscure tool, but it's useful for drawing straight lines, flow charts and diagrams
 
-#### **Anatomy of an object**
+#### Anatomy of an object
 
 ##  {.tabset .tabset-fade}
 
@@ -298,7 +293,7 @@ htmltools::HTML('
 ')
 ```
 
-## 
+##
 
 <div class="alert alert-info">
 <strong>Tip!</strong> Each node on a path needs to be calculated and rendered by the software. The more nodes your shape has, the more complex it becomes and the heavier the load on your system. 
@@ -501,7 +496,7 @@ htmltools::HTML('
             <li style="margin-bottom: 10px;">Try placing a node but this time keep your mouse pressed and move it slightly to drag the handle.</li>
             <li style="margin-bottom: 10px;">Notice how the shape of your next line has changed.</li>
             <li style="margin-bottom: 10px;">A good way to understand how this works is to practice tracing over a circle!</li>
-            <li style="margin-bottom: 10px;">There are also some useful resources for practicing. I like <a href="https://bezier.method.ac/" target="_blank">this game</a>, it is designed for Illustrator so the controls are slightly different, but the tool functions the same.</li>
+            <li style="margin-bottom: 10px;">There are also some useful resources for practicing. I like <a href="https://bezier.method.ac/" target="_blank">this game</a>, it is designed for Illustrator so the controls are slightly different, but the tool functions the same way!</li>
           </ul>
         </div>
       </div>
@@ -538,11 +533,111 @@ htmltools::HTML('
 ')
 ```
 
+## **Plot annotations in Inkscape**
+
+- As I mentioned earlier, it's worth remembering that the more heavily manually edited a plot is, the less reproducible it is.
+  
+- Having said that, it's definitely sometimes useful to be able to manipulate figures using a vector graphics software, particularly for presentations or for making superficial edits that are difficult to achieve in code.
+  
+- I've provided some examples below of some quick and easy annotations with some fake data/figures so you can see what's possible. 
 
 ##  {.tabset .tabset-fade}
 
-## **Notes on exporting your work**
+### Basic formatting
 
+
+
+- If you open one of the files, and import the other into it, both can be easily combined and edited together. 
+
+- If you need to change the working page to fit the image, you can use 'resize page to content' in document properties
+
+- If the figure is too large/small, resize it but don't forget <kbd>ctrl</kbd> to keep the aspect ratio.
+  
+- Alternatively you can crop the image, by creating a rectangle the size that you would like to crop to, <kbd>shift</kbd> and highlight both the rectangle and the image, <kbd>right-click</kbd> and select Set Clip. 
+
+<div class="alert alert-info">
+<strong>Tip!</strong> Everything is an individual editable vector in an svg file! So be careful not to move points or branches etc. It's a good idea to create a layer for all points/branches. These can be locked in place with the padlock icon if needed.
+</div>
+
+![](Images/Plot1.svg){width=200%}
+
+### Rotating plots 
+
+- If you want to rotate a plot, first make sure the plot is grouped: highlight all objects in the plot, the <kbd>rick-click</kbd> > group. Make sure they are in the correct layer first.
+
+- In this case, the species names in the violin plot are in the reverse order. We can fix this easily by mirroring the plot.
+  
+- Go to the tool control bar and use the flip vertical tool to mirror the plot, then rotate it using the rotate tool. Easy peasy!
+  
+- The text can then be removed and replaced with a new text box, or you can rotate the text back to the correct orientation.
+
+![](Images/Plot2.svg){width=200%}
+
+### Editing individual elements
+
+- You can also create separate layer groups for clades/points of interest. This will mean you can change branches/points individually or all at once by highlighting the group in the layer tab.
+
+- You can use <kbd>ctrl</kbd> with the pen tool to create perfectly straight lines (e.g. for brackets or arrow annotations). You can use the X/Y coordinates to perfectly match node positions.
+
+- Increasing the thickness of lines (using the stroke tab in the docking area) is an easy way to highlight them (e.g. the mean bar or certain branches in the tree).
+
+- You can create additional vectors (like species silhouettes), or import any external vector or image you like (just remember to check copyright!)
+
+- Text is easy to edit and move around, and you can use the shape tool to create boxes or elipses to highlight areas on your figure (just change the opacity of the object if you want to see what's underneath).
+
+- You get the idea! This was a silly nonsense example but even if you just use Inkscape to change the positioning of combined plots or text/annotations, it can save you a ton of time when doing final edits for a manuscript :)
+
+![](Images/Plot3.svg){width=200%}
+
+### Code for this practice plot
+
+Feel free to practice with these dummy plots if you like.
+
+```
+# load ape
+library(ape)
+library(ggplot2)
+
+# Set seed 
+set.seed(123)
+
+# Create a random tree with 10 tips
+tree <- chronos(rtree(n = 10, rooted = TRUE))  # Generate a rooted ultrametric tree             
+plot(tree)
+
+# Save tree as an svg file (edit filepath)
+svg("filepath/FakeTree.svg", width = 7, height = 5)
+plot(tree)
+dev.off()
+
+# Create some fake data and plot it
+set.seed(456)
+
+fake_data <- data.frame(
+  Species = factor(rep(tree$tip.label, each = 100), levels = tree$tip.label),  # Reorder species
+  Value = c(rnorm(100, mean = 5), rnorm(100, mean = 6), rnorm(100, mean = 7),
+            rnorm(100, mean = 8), rnorm(100, mean = 5), rnorm(100, mean = 7),
+            rnorm(100, mean = 4), rnorm(100, mean = 6), rnorm(100, mean = 7),
+            rnorm(100, mean = 6))
+)
+
+violin_plot <- ggplot(fake_data, aes(x = Species, y = Value, fill = Species)) +
+  geom_violin(trim = FALSE, draw_quantiles = c(0.25, 0.5, 0.75)) +        
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  theme_minimal() +                    
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  ylab("Value") +                      
+  xlab("Species")                      
+
+# Save violin plot as an SVG file (edit filepath)
+svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
+violin_plot
+dev.off()
+````
+
+##  {.tabset .tabset-fade}
+
+## **Final Notes on exporting your work**
 - The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
 
 - Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
@@ -550,3 +645,5 @@ htmltools::HTML('
 - There is sometimes a width and height limit for your work as well. 
 
 - You should check journal requirements first.
+
+- If you need any help or advice with Inkscape or Illustrator I'm happy to help, if I can! :). There are also a ton of helpful resources online, and I've found the Inkscape community in particular are great for providing advice and tutorials.
