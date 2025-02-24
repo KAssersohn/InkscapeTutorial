@@ -605,10 +605,10 @@ set.seed(123)
 tree <- chronos(rtree(n = 10, rooted = TRUE))  # Generate a rooted ultrametric tree             
 plot(tree)
 
-# Save tree as an svg file (edit filepath)
-svg("filepath/FakeTree.svg", width = 7, height = 5)
+# Save tree as an svg file (edit the filepath)
+svg("filepath/FakeTree.svg", width = 7, height = 5) # open graphics device that directs all plotting commands to an SVG file
 plot(tree)
-dev.off()
+dev.off() # close the graphics device to write the file
 
 # Create some fake data and plot it
 set.seed(456)
@@ -629,7 +629,7 @@ violin_plot <- ggplot(fake_data, aes(x = Species, y = Value, fill = Species)) +
   ylab("Value") +                      
   xlab("Species")                      
 
-# Save violin plot as an SVG file (edit filepath)
+# Save violin plot as an SVG file (edit the filepath)
 svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
 violin_plot
 dev.off()
