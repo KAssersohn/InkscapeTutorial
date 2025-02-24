@@ -466,7 +466,7 @@ htmltools::HTML('
         <div>
           <ul style="list-style-type: disc; padding-left: 20px;">
             <li style="margin-bottom: 10px;">I have found it helpful to practice tracing existing shapes to get the hang of this tool. Create a rectangle with the shape tool to start with.</li>
-            <li style="margin-bottom: 10px;">Left click in a corner to place your first node.</li>
+            <li style="margin-bottom: 10px;">Left click in a corner to place your first node. Hold <kbd>ctrl</kbd> to keep the line straight</li>
             <li style="margin-bottom: 10px;">Move the mouse to the next corner and left click again to place your second node.</li>
             <li style="margin-bottom: 10px;">Repeat for the third corner and finally join up your lines by clicking on the final node.</li>
             <li style="margin-bottom: 10px;">Delete the original shape and admire your sensational artisan rectangle.</li>
@@ -563,7 +563,7 @@ htmltools::HTML('
 
 ### Rotating plots 
 
-- If you want to rotate a plot, first make sure the plot is grouped: highlight all objects in the plot, the <kbd>rick-click</kbd> > group. Make sure they are in the correct layer first.
+- If you want to rotate a plot, first make sure the plot is grouped: highlight all objects in the plot, then <kbd>right-click</kbd> > group. Make sure they are in the correct layer first.
 
 - In this case, the species names in the violin plot are in the reverse order. We can fix this easily by mirroring the plot.
   
@@ -634,6 +634,8 @@ svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
 violin_plot
 dev.off()
 ````
+OR download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/FakeTree.svg)
+download the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/violin_plot.svg)
 
 ##  {.tabset .tabset-fade}
 
