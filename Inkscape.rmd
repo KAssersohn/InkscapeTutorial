@@ -689,5 +689,5 @@ svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
 violin_plot
 dev.off()
 ````
-Or download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/FakeTree.svg)
-and the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/violin_plot.svg)
+Or download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/Plots/FakeTree.svg)
+and the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/Plots/violin_plot.svg)
