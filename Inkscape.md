@@ -1,0 +1,693 @@
+---
+title: "Introduction to Vector Graphics<br>for Science-n-Stuff"
+author: "Kat Assersohn"
+date: "`r format(Sys.Date(), '%m-%Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: 
+      collapsed: false 
+    toc_depth: 4
+    code_folding: show
+    theme:
+      bg: "#202123"
+      fg: "#B8BCC2"
+      primary: "#EA80FC"
+      secondary: "#00DAC6"
+      heading_font:
+        google: Proza Libre
+---
+
+
+```{r setup, include=FALSE}
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+```
+## **What are vector graphics and why should I care?**
+
+Pixelated (bitmap) images are fantastic at conveying photorealism, but they are not always the best choice for displaying detailed and
+consistent graphical information:
+
+- **We cannot scale bitmap images without losing precision:**<br>
+Bitmap images are made up of a fixed number of pixels, so they only look their best at a specific size and resolution and become
+pixelated/blurry when resized (they can be made smaller, but not bigger).
+
+- **Bitmaps are often large and resource-hungry:**<br>
+Every pixel in a bitmap image is associated with a separate piece of memory in the computer. This means that detailed images can be very
+large, difficult to edit and share, and their quality is dependent on the software and hardware used to view them. 
+
+#### So what's so special about vectors? 
+
+- **Vectors are scalable with no loss of quality**<br>
+Instead of containing a fixed number of square pixels, vector graphics store information about objects as points on a plane,
+connected by mathematical equations that describe their shape and relationships to one another.
+
+- **Files are much smaller**<br>
+Vector graphics can be more easily edited, shared and stored than bitmap images.
+
+- **The image always looks the same, on screen or printed, regardless of the size or resolution**
+All this makes them a great choice for precise/detailed plots, schematics, infographics, graphical abstracts and posters.
+
+
+##  {.tabset .tabset-fade}
+
+### Bitmap image of a zebra finch
+```{r, results='asis', echo=FALSE}
+htmltools::tags$div(
+  style = "display: flex; justify-content: space-around; margin-bottom: 20px;",  # Add margin below the div
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "Images/ZF.jpg", 
+                        alt = "Zebra Finch Male", 
+                        style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
+    htmltools::tags$figcaption("Bitmap image of a zebra finch")
+  ),
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "Images/PixelatedZF.jpg", 
+                        alt = "Zebra Finch Male Zoomed", 
+                        style = "margin-top: 20px; margin-bottom: 20px;"),  # Add margin above and below the image
+    htmltools::tags$figcaption("scaled bitmap image of a zebra finch")
+  )
+)
+```
+
+### Vector drawing of a zebra finch
+```{r, results='asis', echo=FALSE}
+htmltools::tags$div(
+  style = "display: flex; justify-content: space-around;",
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "Images/zebrafinchmale.svg", 
+                        alt = "Zebra Finch Male", 
+                        style = "width: 50%; height: auto;"),
+    htmltools::tags$figcaption("Vector drawing of a zebra finch")
+  ),
+  htmltools::tags$figure(
+    htmltools::tags$img(src = "Images/zebrafinchmaleZOOM.svg", 
+                        alt = "Zebra Finch Male Zoomed", 
+                        style = "width: 90%; height: auto;"),
+    htmltools::tags$figcaption("scaled vector drawing of a zebra finch")
+  )
+)
+```
+
+## **What's the catch?**
+
+It requires a little bit of practice to get to grips with vector graphics software, but you don't need to be 
+an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics though:
+
+#### File types<br>
+
+- Most commonly you'll see .svg (Scalable Vector Graphics). (Svg's are XML based which makes them easy to render in most web browsers for quick viewing!)
+  
+- PDFs can also be vector-based (but not always). Think about how when you zoom into a pdf file the text always remains crisp and clear!
+  
+- Another common file type is .eps (Encapsulated PostScript). .EPS in my experience is a favourite of journals because it's so easily editable and compatible with most design software. <br>
+
+<div class="alert alert-info">
+<strong>Tip!</strong> If you're working in Illustrator, files will be .ai natively, and if you're working in Inkscape it will be .svg. I recommend you always keep a copy of your file in the native format of the software it was created in, and save any exports as a new version, just incase something goes wrong down the line.
+It's easy to export a .ai file into a .eps, but not necessarily the other way around... 
+</div>
+
+#### Reproducibility<br>
+You can easily save plots from R as vectors that can then be edited in a vector graphics software. In RStudio for example, you can use ggsave or svg() 
+
+It's important to bear in mind though, that the more heavily manually edited a plot is, the less reproducible it is. Before editing a plot 
+it's worth asking yourself whether a coding solution might be a better option first! 
+
+#### Colour models<br>
+The two main types of colour models are RGB (Red, Green, Blue) (used primarily for digital display) and CMYK (Cyan, Magenta, Yellow, Black) (used primarily
+for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa. 
+
+![RGB and CMYK colour modes](https://cdn.firespring.com/images/1bc97d7d-1c72-4e08-9c54-f7e5d38d8d48.jpg)
+
+<br>
+Which to choose for both print and screen? There isn't an obvious answer but I usually
+create the image in RGB first because of the wider choice of colours available for digital displays. 
+Just remember that before printing, you might want to convert the image to CMYK to ensure accurate colour reproduction.
+
+<div class="alert alert-info">
+<strong>Note!</strong> While Illustrator has a built in engine for converting between colour models, in Inkscape it's a bit more tricky, and you might have to use a different
+software - I think Scribus is the most commonly used free option.
+</div>
+
+#### Which software should I use?<br>
+
+There are countless options! I've dabbled in a few but the two most popular are probably Inkscape and Illustrator. They both have their pros and cons and I've listed a few below:
+
+| Inkscape    | Illustrator |
+| ----------- | ----------- |
+| Very accessible (free and open source) with community driven updates      | Requires an expensive licences subscription with Adobe (UoS staff and students can request one)   |
+| .svg native format. May struggle with some complex file types   | .ai native format, more flexible at handling complex file types. Seamless workflow with other Adobe software     |
+| RGB native colour model, external software needed for colour model conversion | RGB or CMYK colour models easily specified with a built in colour model conversion engine |
+| Can have stability issues, but has fewer system requirements | Pretty stable, however can require a huge amount of RAM for big files and won't run well on old/certain systems |
+| Lacks some tools and features, however realistically it has everything you need for simple graphics and posters | Has a lot of specialised tools and functions. The industry standard |
+| Many community resources out there for learning, with a shallower learning curve than Illlustrator | Steeper learning curve, so not as suitable for beginners, fewer community resources |
+
+## **Introduction to Inkscape**
+
+This is not an exhaustive tutorial (that would take days!), but just a list of the most important tools and features I think you'll need to get started.
+
+#### Setting up document properties
+
+- Page format
+  
+- Page orientation
+  
+- Guides (create guides around page is handy)
+  
+- Metadata
+  
+- Licence (if needed)
+  
+- Resize to content (useful to remember this feature but don't worry about it for now)
+
+#### Moving about
+
+- Zoom in and out either with the zoom tool (bottom right), or <kbd>ctrl + scroll</kbd>
+  
+- There are also some useful quick zoom tools in the commands bar on the right (e.g. zoom to page, zoom to selection, zoom centre view etc)
+  
+- Drag the page around the page by pressing the scroll wheel, holding the <kbd>spacebar</kbd>, or <kbd>ctrl/shift + right click</kbd>
+  
+- Rotate the page with the rotate tool (bottom right under the palette)
+
+#### The main interface
+![](Images/InkscapeInterface.svg)
+
+**Toolbox:** Tool selection
+
+**Working page area:** You can use the canvas outside but it won't be rendered in the final export
+
+**Docking area:** Dialogs for specific tool functions
+
+**Commands bar:** Quick access to common commands
+
+**Snap controls:** Useful for aligning objects but can be irritating. I recommend turning snapping off to start with
+
+**Palette:** Basic usage for changing object fill (<kbd>shift + click</kbd> for stroke/outline). Change palette on the right
+
+**Tool control bar:** More adjustable options for the selected tool
+
+#### Layers
+
+Future you will thank you for taking the time to organise objects into layers! 
+
+You can <kbd>shift</kbd> to select multiple objects, then group them (<kbd>right click</kbd> + group) to move and adjust objects together, and gather them under the same layer controls. 
+
+![](Images/Layers.svg)
+
+#### Key tools
+
+<div style= "float:right;position: relative; top: +0px;">
+![](Images/KeyTools.svg) 
+</div>
+
+There are currently around 23 primary tools in Inkscape, but you're not likely to use all of them (for now). Only a few are really necessary to get started. 
+I'll show you the tools I've found most useful. 
+
+- **Selector tool:** The primary tool you'll use to navigate your workspace, move, rotate, scale and select objects.
+  
+- **Node tool:** You'll use this to edit the shape of objects. I'll talk more about nodes below.
+  
+- **Shape tools:** Quickly create rectangles/circles/stars/polygons. Use the tool control bar for more options
+  
+- **Pen tool:** You'll use this to draw precise lines and shapes by hand. It takes a little work to get the hang of, but once you do you'll find it the most versatile and useful tool at your disposal.
+  
+- **Text tool:** You can guess what this does. You can change the font, size, colour, alignment and more in the text dialog in the docking area. You can move it around like any other object.
+  
+- **Gradient tool:** This one you might not use as much, but it's a nice way to add some depth to your work. 
+  
+- **Dropper tool:** You've probably used this in Paint, they provide quick and easy ways to change and match the colour of objects.
+  
+- **Connector tool:** This is a slightly obscure tool, but it's useful for drawing lines in flow charts and diagrams.
+
+#### Anatomy of an object
+
+##  {.tabset .tabset-fade}
+
+### Adjusting object shapes with the node tool
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/Nodes.svg" alt="Nodes Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">In vector graphics, nodes are individual points on a path that defines its shape and can be manipulated through vector graphics software</li>
+            <li style="margin-bottom: 10px;">Use the node tool to access the nodes of an object/path. </li>
+            <li style="margin-bottom: 10px;">You can directly move the node to change the object\'s shape, or adjust the curvature using the node handles.</li>
+            <li style="margin-bottom: 10px;">Double-click to add nodes, <kbd>delete</kbd> to remove them.</li>
+            <li style="margin-bottom: 10px;">Join nodes with other nodes, or break node paths using the node tools in the tool control bar.</li>
+            <li style="margin-bottom: 10px;">Adjust the shape of lines around nodes by using the corner or auto-smoothing tools in the tool control bar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+
+### Moving and resizing objects
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/ObjectAnatomy.svg" alt="Object Anatomy Image" style="margin-right: 40px; width: 900px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">An object can be easily resized or rotated by clicking in the object bounding box, once for resizing, twice for rotation.</li>
+            <li style="margin-bottom: 10px;">Press <kbd>ctrl</kbd> to keep the aspect ratio when resizing, and <kbd>shift</kbd> to rotate in 15 degree increments.</li>
+            <li style="margin-bottom: 10px;">Double click to access the text box adjustments. This will appear red if the text goes outside the limits of the text box. </li>
+            <li style="margin-bottom: 10px;">The text itself can also be edited in the text dialog in the docking area.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+
+### Adjust object properties
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/DockingOptions.svg" alt="Docking options Image" style="margin-right: 40px; width: 1500px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;"><kbd>ctrl + shift + F</kbd> to bring up the object fill and stroke options in the docking area.</li>
+            <li style="margin-bottom: 10px;">Quickly change object fill using the colour palette bar at the bottom.</li>
+            <li style="margin-bottom: 10px;">Quickly change object stroke using the colour palette bar at the bottom using <kbd>shift</kbd> when selecting.</li>
+            <li style="margin-bottom: 10px;">Remove outline or fill entirely by clicking the X bottom left of the palette (or in fill/stroke options in the docking area).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+## 
+
+<div class="alert alert-info">
+<strong>Tip!</strong> Each node on a path needs to be calculated and rendered by the software. The more nodes your shape has, the more complex it becomes and the heavier the load on your system. 
+Past a certain point this can create significant lag (particularly in Inkscape), so it's best to keep your shapes as simple as possible. The simplify tool can automatically reduce the number of nodes in an overly complex object. 
+Try this using <kbd>ctrl + L</kbd> on a selected object and see how it responds. You can also manually remove excess nodes. Learning how to use the pen tool properly is a great way to minimise excessive node use (more on this later).
+</div>
+
+## **Exporting your work**
+
+- The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
+
+- Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
+
+- There is sometimes a width and height limit for your work as well. 
+
+- You should check journal requirements first.
+
+- If you need any help or advice with Inkscape or Illustrator I'm happy to help, if I can! :). There are also a ton of helpful resources online, and I've found the Inkscape community in particular are great for providing advice and tutorials.
+
+## **Let's make a basic poster template!**
+
+##  {.tabset .tabset-fade}
+
+
+### 1. Set up a new document
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PosterTemplatestepproperties.svg" alt="Poster Properties Image" style="margin-right: 40px; width: 600px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">File > Document Properties</li>
+            <li style="margin-bottom: 10px;">Under the <kbd>Display</kbd> tab, Set the page size.</li>
+            <li style="margin-bottom: 10px;">Under the <kbd>Display</kbd> tab, set the page orientation.</li>
+            <li style="margin-bottom: 10px;">Under the <kbd>Guides</kbd> tab, you can create some guides around the page if you like (not essential). You can add new guides easily using the ruler later if needed.</li>
+            <li style="margin-bottom: 10px;">Under the <kbd>Metadata</kbd> tab, add some deets (I would probably at least add your name and the date).</li>
+            <li style="margin-bottom: 10px;">Under the <kbd>Licence</kbd> tab, you can add a licence if you want to share your work.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### 2. create a background
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PosterTemplatestep2.svg" alt="Poster Template Step 2 Image" style="margin-right: 40px; width: 600px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">Add a new layer (numerous ways, easiest is just Layer > Add Layer, or through the Layers and Objects tab in the docking area), give it a name.</li>
+            <li style="margin-bottom: 10px;">Enable snapping, and create a background using the rectangle tool, drag it to fill the page and give it a nice colour.</li>
+            <li style="margin-bottom: 10px;">This is a good time to check your colour model is set to CMYK, Do this in the Fill and Stroke tab in the docking area.</li>
+            <li style="margin-bottom: 10px;">Lock the layer (click the padlock icon) so you don\'t accidentally move it.</li>
+            <li style="margin-bottom: 10px;">If you want to be fancy, you can give your background a gradient, just give each point on the gradient line a different colour, and play around with the gradient options in the docking area</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### 3. Add some content boxes
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PosterTemplatestep3.svg" alt="Poster Template Step 3 Image" style="margin-right: 40px; width: 600px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">Add a new layer for text and figure boxes, make sure this new layer sits \'above current\'.</li>
+            <li style="margin-bottom: 10px;">Disable snapping and add some boxes using the shape tool. <kbd>ctrl + D</kbd> to duplicate any shapes you like.</li>
+            <li style="margin-bottom: 10px;">Mess about with Align and Distribute in the docking area, which can help you position your boxes evenly.</li>
+            <li style="margin-bottom: 10px;">Tip: You can round the edges of a shape by pulling the circular node on the top right corner (node selection tool). </li>
+            <li style="margin-bottom: 10px;">Tip: There are loads of options for mucking about with shape paths in the \'Path\' tab in the menu bar. I\'ve used the \'Difference\' option to illustrate how you can use one shape to cut a hole out of another.</li>
+            <li style="margin-bottom: 10px;">Tip: There are loads of filter options for shapes. I have illustrated the use of drop shadows here. See the \'Filters\' tab in the menu bar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### 4. Add some sample text
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PosterTemplate.svg" alt="Poster Template Image" style="margin-right: 40px; width: 600px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">Create a text box using the text tool, and find the text tab in the docking area.</li>
+            <li style="margin-bottom: 10px;">Type some text, adjust the font and size. You can also set it as default to keep it consistent across the document.</li>
+            <li style="margin-bottom: 10px;">If you notice your text looks a bit clumpy, it might have a stroke effect on it, try removing that in Object Stroke and Fill, or in the palette (<kbd>shift</kbd> click on the X).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### 5. Save the template and practice exporting
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/Exporting.svg" alt="Exporting Image" style="margin-right: 40px; width: 600px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">File >Save template (add some informative information here). I also recommend keeping an svg copy because the template will only be available on your local computer.</li>
+            <li style="margin-bottom: 10px;">File >Export (or find this tab in the docking area).</li>
+            <li style="margin-bottom: 10px;">Choose Document for now (you can mess about with exporting only selected objects later).</li>
+            <li style="margin-bottom: 10px;">Choose document type and rasterisation (e.g. a 300 or 600 dpi pdf)</li>
+            <li style="margin-bottom: 10px;">Ta da! You have a cute little poster template :D </li>
+            <li style="margin-bottom: 10px;">Next time you want to make a poster, you can select File > New Document From Template > Custom and select your template from the list.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+  
+##
+<div class="alert alert-info">
+<strong>Tip!</strong> If you like the settings you applied to one object and want to apply it to other objects, just select the object and copy it with <kbd>ctrl + C</kbd> it, 
+then select the object you want to apply the settings to and use <kbd>ctrl + shift + V</kbd>. This will apply the colour, stroke, font and any filters or other attributes to the new object.
+</div>
+
+## **Become a pen tool pro**
+
+##  {.tabset .tabset-fade}
+
+### Using the pen tool for drawing straight lines
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenToolRectangle.svg" alt="PenTool1 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">I have found it helpful to practice tracing existing shapes to get the hang of this tool. Create a rectangle with the shape tool to start with.</li>
+            <li style="margin-bottom: 10px;">Left click in a corner to place your first node. Hold <kbd>ctrl</kbd> to keep the line straight</li>
+            <li style="margin-bottom: 10px;">Move the mouse to the next corner and left click again to place your second node.</li>
+            <li style="margin-bottom: 10px;">Repeat for the third corner and finally join up your lines by clicking on the final node.</li>
+            <li style="margin-bottom: 10px;">Delete the original shape and admire your sensational artisan rectangle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Using the pen tool for drawing curves
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenToolCircle.svg" alt="PenTool2 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">This time, we need to define the handles of the node to determine the curvature of our line.</li>
+            <li style="margin-bottom: 10px;">Try placing a node but this time keep your mouse pressed and move it slightly to drag the handle.</li>
+            <li style="margin-bottom: 10px;">Notice how the shape of your next line has changed.</li>
+            <li style="margin-bottom: 10px;">A good way to understand how this works is to practice tracing over a circle!</li>
+            <li style="margin-bottom: 10px;">There are also some useful resources for practicing. I like <a href="https://bezier.method.ac/" target="_blank">this game</a>, it is designed for Illustrator so the controls are slightly different, but the tool functions the same way!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Creating more complex shapes
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/ComplexShape.svg" alt="PenTool3 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">Once you\'ve mastered the basics you can have a look at creating some more complex shapes.</li>
+            <li style="margin-bottom: 10px;">Tip: If you make a mistake, simply <kbd>delete</kbd> the last node and try again.</li>
+            <li style="margin-bottom: 10px;">Tip: To retain the shape of your previous line, but determine a new handle for the next, hold <kbd>Shift</kbd> while moving a handle.</li>
+            <li style="margin-bottom: 10px;">Tip: Use the pen tool in combination with the shape tool to create quick complex shapes, use Paths > Union to join shapes, or Difference to use them like a cookie cutter. </li>
+            <li style="margin-bottom: 10px;">Tip: If you want to customise the nodes of an object, use Path > Object to path. </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Challenge!
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenTool.svg" alt="PenTool3 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">If you want to practice building vectors using the pen tool, why not try to recreate this drawing of the Inkscape Pen Tool!</li>
+            <li style="margin-bottom: 10px;">Tip: The drop shadow effect can be found in the Filters tab.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+## **Plot annotations in Inkscape**
+
+- As I mentioned earlier, it's worth remembering that the more heavily manually edited a plot is, the less reproducible it is.
+  
+- Having said that, it's definitely sometimes useful to be able to manipulate figures using a vector graphics software, particularly for presentations or for making superficial edits that are difficult to achieve in code.
+  
+- I've provided some examples below of some quick and easy annotations with some fake data/figures so you can see what's possible. 
+
+##  {.tabset .tabset-fade}
+
+### Basic formatting
+
+- If you open one of the files, and import the other into it, both can be easily combined and edited together. 
+
+![](Images/Plot1.svg){width=200%}
+
+- If you need to change the working page to fit the image, you can use 'resize page to content' in document properties
+
+- If the figure is too large/small, resize it but don't forget <kbd>ctrl</kbd> to keep the aspect ratio.
+
+- Alternatively you can crop the image: Create a rectangle (or other shape) the size that you would like to crop to. Use <kbd>shift</kbd> to highlight both the rectangle and the image, then <kbd>right-click</kbd> and select Set Clip. 
+
+![](Images/Cropping.png){width=100%}
+
+<div class="alert alert-info">
+<strong>Tip!</strong> Everything is an individual editable vector in an svg file! So be careful not to move points or branches etc. It's a good idea to create a separate layer to hold data points/branches etc. These can be locked in place with the padlock icon if needed.
+</div>
+
+### Rotating plots 
+
+- If you want to rotate a plot, first make sure the plot is grouped: highlight all objects in the plot, then <kbd>right-click</kbd> > group. Make sure they are in the correct layer first.
+
+![](Images/Group.png){width=50%}
+
+- In this case, the species names in the violin plot are in the reverse order. We can fix this easily by mirroring the plot.
+  
+- Go to the tool control bar and use the flip vertical tool to mirror the plot, then rotate it using the rotate tool. Easy peasy!
+
+![](Images/Mirror.png){width=50%}
+  
+- The text can then be removed and replaced with a new text box, or you can rotate the text back to the correct orientation.
+
+![](Images/Plot2.svg){width=200%}
+
+### Editing individual elements
+
+- You can also create separate layer groups for clades/points of interest. This will mean you can change branches/points individually or all at once by highlighting the group in the layer tab.
+
+![](Images/MoveToLayer.png){width=50%}
+
+- You can use <kbd>ctrl</kbd> with the pen tool to create perfectly straight lines (e.g. for brackets or arrow annotations). You can use the X/Y coordinates to perfectly match node positions.
+
+- Increasing the thickness of lines (using the stroke tab in the docking area) is an easy way to highlight them (e.g. the mean bar or certain branches in the tree). 
+  
+- In this example, I also removed the upper and lower quantiles by making them invisible in the layers tab (that way I can turn them back on if I change my mind). 
+
+- You can create additional vectors, or import any external vector or image you like (just remember to check copyright!)
+
+![](Images/Sillhouette.png){width=50%}
+
+- Text is easy to edit and move around, and you can use the shape tool to create boxes or elipses to highlight areas on your figure (just change the opacity of the object if you want to see what's underneath).
+
+- You get the idea! This was a silly nonsense example but even if you just use Inkscape to change the positioning of combined plots or text/annotations, it can save you a ton of time when doing final edits for a manuscript :)
+
+![](Images/Plot3.svg){width=200%}
+
+### Code for this practice plot
+
+Feel free to practice with these dummy plots if you like.
+
+```
+# load ape
+library(ape)
+library(ggplot2)
+
+# Set seed 
+set.seed(123)
+
+# Create a random tree with 10 tips
+tree <- chronos(rtree(n = 10, rooted = TRUE))  # Generate a rooted ultrametric tree             
+plot(tree)
+
+# Save tree as an svg file (edit the filepath)
+svg("filepath/FakeTree.svg", width = 7, height = 5) # open graphics device
+plot(tree)
+dev.off() # close the graphics device
+
+# Create some fake data and plot it
+set.seed(456)
+
+fake_data <- data.frame(
+  Species = factor(rep(tree$tip.label, each = 100), levels = tree$tip.label),  # Reorder species
+  Value = c(rnorm(100, mean = 5), rnorm(100, mean = 6), rnorm(100, mean = 7),
+            rnorm(100, mean = 8), rnorm(100, mean = 5), rnorm(100, mean = 7),
+            rnorm(100, mean = 4), rnorm(100, mean = 6), rnorm(100, mean = 7),
+            rnorm(100, mean = 6))
+)
+
+violin_plot <- ggplot(fake_data, aes(x = Species, y = Value, fill = Species)) +
+  geom_violin(trim = FALSE, draw_quantiles = c(0.25, 0.5, 0.75)) +        
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  theme_minimal() +                    
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  ylab("Value") +                      
+  xlab("Species")                      
+
+# Save violin plot as an SVG file (edit the filepath)
+svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
+violin_plot
+dev.off()
+````
+Or download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/FakeTree.svg)
+and the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/violin_plot.svg)
