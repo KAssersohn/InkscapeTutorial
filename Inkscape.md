@@ -3,7 +3,7 @@ title: "Introduction to Vector Graphics<br>for Science-n-Stuff"
 author: "Kat Assersohn"
 date: "`r format(Sys.Date(), '%m-%Y')`"
 output:
-  html_document:
+  md_document:
     toc: true
     toc_float: 
       collapsed: false 
