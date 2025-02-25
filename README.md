@@ -6,6 +6,6 @@ An Inkscape tutorial for scientists, covering:
 - How to use the pen tool
 - How to do basic plot annotations
 
-If you need more help, feel free to contact me. 
+If you need more help, feel free to contact me: k.assersohn@sheffield.ac.uk 
 
 There are lots of other resources for Inkscape, as well. The Inkscape website in particular is fantastic and provides a ton of free tutorials https://inkscape.org/learn/tutorials/
