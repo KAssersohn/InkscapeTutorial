@@ -92,12 +92,14 @@ htmltools::tags$div(
 ## **What's the catch?**
 
 It requires a little bit of practice to get to grips with vector graphics software, but you don't need to be 
-an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics:
+an artist or designer to make use of these tools. There are some considerations to keep in mind when using vector graphics though:
 
 #### File types<br>
 
 - Most commonly you'll see .svg (Scalable Vector Graphics). (Svg's are XML based which makes them easy to render in most web browsers for quick viewing!)
+  
 - PDFs can also be vector-based (but not always). Think about how when you zoom into a pdf file the text always remains crisp and clear!
+  
 - Another common file type is .eps (Encapsulated PostScript). .EPS in my experience is a favourite of journals because it's so easily editable and compatible with most design software. <br>
 
 <div class="alert alert-info">
@@ -113,7 +115,7 @@ it's worth asking yourself whether a coding solution might be a better option fi
 
 #### Colour models<br>
 The two main types of colour models are RGB (Red, Green, Blue) (used primarily for digital display) and CMYK (Cyan, Magenta, Yellow, Black) (used primarily
-for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa.
+for print). It's important to consider the colours of your work **before** you start. Just remember that a graphic produced with RGB colours will look different when printed and visa versa. 
 
 ![RGB and CMYK colour modes](https://cdn.firespring.com/images/1bc97d7d-1c72-4e08-9c54-f7e5d38d8d48.jpg)
 
@@ -133,7 +135,7 @@ There are countless options! I've dabbled in a few but the two most popular are 
 
 | Inkscape    | Illustrator |
 | ----------- | ----------- |
-| Very accessible (free and open source) with community driven updates      | Requires a licences subscription with Adobe (free for UoS staff and students upon request, but expensive otherwise)   |
+| Very accessible (free and open source) with community driven updates      | Requires an expensive licences subscription with Adobe (UoS staff and students can request one)   |
 | .svg native format. May struggle with some complex file types   | .ai native format, more flexible at handling complex file types. Seamless workflow with other Adobe software     |
 | RGB native colour model, external software needed for colour model conversion | RGB or CMYK colour models easily specified with a built in colour model conversion engine |
 | Can have stability issues, but has fewer system requirements | Pretty stable, however can require a huge amount of RAM for big files and won't run well on old/certain systems |
@@ -142,22 +144,30 @@ There are countless options! I've dabbled in a few but the two most popular are 
 
 ## **Introduction to Inkscape**
 
-Note this is not an exhaustive tutorial, but just a list of the most important tools and features I think you'll need to get started
+This is not an exhaustive tutorial (that would take days!), but just a list of the most important tools and features I think you'll need to get started.
 
 #### Setting up document properties
 
 - Page format
+  
 - Page orientation
+  
 - Guides (create guides around page is handy)
+  
 - Metadata
+  
 - Licence (if needed)
+  
 - Resize to content (useful to remember this feature but don't worry about it for now)
 
 #### Moving about
 
 - Zoom in and out either with the zoom tool (bottom right), or <kbd>ctrl + scroll</kbd>
+  
 - There are also some useful quick zoom tools in the commands bar on the right (e.g. zoom to page, zoom to selection, zoom centre view etc)
+  
 - Drag the page around the page by pressing the scroll wheel, holding the <kbd>spacebar</kbd>, or <kbd>ctrl/shift + right click</kbd>
+  
 - Rotate the page with the rotate tool (bottom right under the palette)
 
 #### The main interface
@@ -196,19 +206,19 @@ I'll show you the tools I've found most useful.
 
 - **Selector tool:** The primary tool you'll use to navigate your workspace, move, rotate, scale and select objects.
   
-- **Node tool:** You'll use this to edit the shape of objects. I'll talk more about nodes below
+- **Node tool:** You'll use this to edit the shape of objects. I'll talk more about nodes below.
   
-- **Shape tools:** Quickly create rectangles, circles, stars and polygons. Use the tool control bar for more options
+- **Shape tools:** Quickly create rectangles/circles/stars/polygons. Use the tool control bar for more options
   
 - **Pen tool:** You'll use this to draw precise lines and shapes by hand. It takes a little work to get the hang of, but once you do you'll find it the most versatile and useful tool at your disposal.
   
-- **Text tool:** You can guess what this does. You can change the font, size, colour, alignment and more in the text dialog in the docking area.
+- **Text tool:** You can guess what this does. You can change the font, size, colour, alignment and more in the text dialog in the docking area. You can move it around like any other object.
   
 - **Gradient tool:** This one you might not use as much, but it's a nice way to add some depth to your work. 
   
-- **Dropper and bucket tools:** You've probably used these in Paint, they provide quick and easy ways to change the colour of objects
+- **Dropper tool:** You've probably used this in Paint, they provide quick and easy ways to change and match the colour of objects.
   
-- **Connector tool:** This is possibly another slightly obscure tool, but it's useful for drawing straight lines, flow charts and diagrams
+- **Connector tool:** This is a slightly obscure tool, but it's useful for drawing lines in flow charts and diagrams.
 
 #### Anatomy of an object
 
@@ -293,13 +303,25 @@ htmltools::HTML('
 ')
 ```
 
-##
+## 
 
 <div class="alert alert-info">
 <strong>Tip!</strong> Each node on a path needs to be calculated and rendered by the software. The more nodes your shape has, the more complex it becomes and the heavier the load on your system. 
 Past a certain point this can create significant lag (particularly in Inkscape), so it's best to keep your shapes as simple as possible. The simplify tool can automatically reduce the number of nodes in an overly complex object. 
 Try this using <kbd>ctrl + L</kbd> on a selected object and see how it responds. You can also manually remove excess nodes. Learning how to use the pen tool properly is a great way to minimise excessive node use (more on this later).
 </div>
+
+## **Exporting your work**
+
+- The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
+
+- Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
+
+- There is sometimes a width and height limit for your work as well. 
+
+- You should check journal requirements first.
+
+- If you need any help or advice with Inkscape or Illustrator I'm happy to help, if I can! :). There are also a ton of helpful resources online, and I've found the Inkscape community in particular are great for providing advice and tutorials.
 
 ## **Let's make a basic poster template!**
 
@@ -450,7 +472,6 @@ then select the object you want to apply the settings to and use <kbd>ctrl + shi
 
 ## **Become a pen tool pro**
 
-
 ##  {.tabset .tabset-fade}
 
 ### Using the pen tool for drawing straight lines
@@ -522,8 +543,32 @@ htmltools::HTML('
             <li style="margin-bottom: 10px;">Once you\'ve mastered the basics you can have a look at creating some more complex shapes.</li>
             <li style="margin-bottom: 10px;">Tip: If you make a mistake, simply <kbd>delete</kbd> the last node and try again.</li>
             <li style="margin-bottom: 10px;">Tip: To retain the shape of your previous line, but determine a new handle for the next, hold <kbd>Shift</kbd> while moving a handle.</li>
-            <li style="margin-bottom: 10px;">Tip: Use the pen tool in combination with the shape tool to easily create complex shapes, use Paths > Union to join shapes.</li>
-            <li style="margin-bottom: 10px;">Tip: If you want to customise the nodes of a shape, use Path > Object to path. Drag nodes or lines to change them</li>
+            <li style="margin-bottom: 10px;">Tip: Use the pen tool in combination with the shape tool to create quick complex shapes, use Paths > Union to join shapes, or Difference to use them like a cookie cutter. </li>
+            <li style="margin-bottom: 10px;">Tip: If you want to customise the nodes of an object, use Path > Object to path. </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+')
+```
+
+### Challenge!
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML('
+<div class="tabset tabset-fade">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <div style="display: flex; align-items: flex-start;">
+        <figure>
+          <img src="Images/PenTool.svg" alt="PenTool3 Image" style="margin-right: 40px; width: 1000px; height: auto;">
+        </figure>
+        <div>
+          <ul style="list-style-type: disc; padding-left: 20px;">
+            <li style="margin-bottom: 10px;">If you want to practice building vectors using the pen tool, why not try to recreate this drawing of the Inkscape Pen Tool!</li>
+            <li style="margin-bottom: 10px;">Tip: The drop shadow effect can be found in the Filters tab.</li>
           </ul>
         </div>
       </div>
@@ -545,29 +590,33 @@ htmltools::HTML('
 
 ### Basic formatting
 
-
-
 - If you open one of the files, and import the other into it, both can be easily combined and edited together. 
+
+![](Images/Plot1.svg){width=200%}
 
 - If you need to change the working page to fit the image, you can use 'resize page to content' in document properties
 
 - If the figure is too large/small, resize it but don't forget <kbd>ctrl</kbd> to keep the aspect ratio.
-  
-- Alternatively you can crop the image, by creating a rectangle the size that you would like to crop to, <kbd>shift</kbd> and highlight both the rectangle and the image, <kbd>right-click</kbd> and select Set Clip. 
+
+- Alternatively you can crop the image: Create a rectangle (or other shape) the size that you would like to crop to. Use <kbd>shift</kbd> to highlight both the rectangle and the image, then <kbd>right-click</kbd> and select Set Clip. 
+
+![](Images/Cropping.png){width=100%}
 
 <div class="alert alert-info">
-<strong>Tip!</strong> Everything is an individual editable vector in an svg file! So be careful not to move points or branches etc. It's a good idea to create a layer for all points/branches. These can be locked in place with the padlock icon if needed.
+<strong>Tip!</strong> Everything is an individual editable vector in an svg file! So be careful not to move points or branches etc. It's a good idea to create a separate layer to hold data points/branches etc. These can be locked in place with the padlock icon if needed.
 </div>
-
-![](Images/Plot1.svg){width=200%}
 
 ### Rotating plots 
 
 - If you want to rotate a plot, first make sure the plot is grouped: highlight all objects in the plot, then <kbd>right-click</kbd> > group. Make sure they are in the correct layer first.
 
+![](Images/Group.png){width=50%}
+
 - In this case, the species names in the violin plot are in the reverse order. We can fix this easily by mirroring the plot.
   
 - Go to the tool control bar and use the flip vertical tool to mirror the plot, then rotate it using the rotate tool. Easy peasy!
+
+![](Images/Mirror.png){width=50%}
   
 - The text can then be removed and replaced with a new text box, or you can rotate the text back to the correct orientation.
 
@@ -577,11 +626,17 @@ htmltools::HTML('
 
 - You can also create separate layer groups for clades/points of interest. This will mean you can change branches/points individually or all at once by highlighting the group in the layer tab.
 
+![](Images/MoveToLayer.png){width=50%}
+
 - You can use <kbd>ctrl</kbd> with the pen tool to create perfectly straight lines (e.g. for brackets or arrow annotations). You can use the X/Y coordinates to perfectly match node positions.
 
-- Increasing the thickness of lines (using the stroke tab in the docking area) is an easy way to highlight them (e.g. the mean bar or certain branches in the tree).
+- Increasing the thickness of lines (using the stroke tab in the docking area) is an easy way to highlight them (e.g. the mean bar or certain branches in the tree). 
+  
+- In this example, I also removed the upper and lower quantiles by making them invisible in the layers tab (that way I can turn them back on if I change my mind). 
 
-- You can create additional vectors (like species silhouettes), or import any external vector or image you like (just remember to check copyright!)
+- You can create additional vectors, or import any external vector or image you like (just remember to check copyright!)
+
+![](Images/Sillhouette.png){width=50%}
 
 - Text is easy to edit and move around, and you can use the shape tool to create boxes or elipses to highlight areas on your figure (just change the opacity of the object if you want to see what's underneath).
 
@@ -606,9 +661,9 @@ tree <- chronos(rtree(n = 10, rooted = TRUE))  # Generate a rooted ultrametric t
 plot(tree)
 
 # Save tree as an svg file (edit the filepath)
-svg("filepath/FakeTree.svg", width = 7, height = 5) # open graphics device that directs all plotting commands to an SVG file
+svg("filepath/FakeTree.svg", width = 7, height = 5) # open graphics device
 plot(tree)
-dev.off() # close the graphics device to write the file
+dev.off() # close the graphics device
 
 # Create some fake data and plot it
 set.seed(456)
@@ -634,18 +689,5 @@ svg("filepath/fake_violin_plot.svg", width = 7, height = 5)
 violin_plot
 dev.off()
 ````
-OR download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/FakeTree.svg)
-download the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/violin_plot.svg)
-
-##  {.tabset .tabset-fade}
-
-## **Final Notes on exporting your work**
-- The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
-
-- Generally, 600DPI (DPI = dots per inch) is the standard for print, and 300DPI is the standard for web.
-
-- There is sometimes a width and height limit for your work as well. 
-
-- You should check journal requirements first.
-
-- If you need any help or advice with Inkscape or Illustrator I'm happy to help, if I can! :). There are also a ton of helpful resources online, and I've found the Inkscape community in particular are great for providing advice and tutorials.
+Or download the tree file [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/FakeTree.svg)
+and the violin plot [here](https://github.com/KAssersohn/InkscapeTutorial/blob/main/violin_plot.svg)

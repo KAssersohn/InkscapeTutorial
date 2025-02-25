@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="93.084602mm"
-   height="86.980698mm"
-   viewBox="0 0 93.084602 86.980698"
+   width="96.738243mm"
+   height="107.82712mm"
+   viewBox="0 0 96.738243 107.82712"
    version="1.1"
    id="svg1"
+   inkscape:export-filename="PenTool.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   sodipodi:docname="PenToolRectangle.svg"
+   sodipodi:docname="PenTool.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +26,26 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="16"
-     inkscape:cx="307.3125"
-     inkscape:cy="297.46875"
-     inkscape:window-width="2560"
-     inkscape:window-height="1369"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:export-bgcolor="#ffffffff"
+     inkscape:zoom="1.4778115"
+     inkscape:cx="234.80667"
+     inkscape:cy="147.17709"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="357"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g54" />
   <defs
      id="defs1">
     <filter
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter54"
-       x="-0.0486086"
-       y="-0.039632286"
-       width="1.132661"
-       height="1.1081631">
+       x="-0.048409135"
+       y="-0.039469656"
+       width="1.132262"
+       height="1.1078379">
       <feFlood
          result="flood"
          in="SourceGraphic"
@@ -51,7 +55,7 @@
       <feGaussianBlur
          result="blur"
          in="SourceGraphic"
-         stdDeviation="0.400000"
+         stdDeviation="0.39835862"
          id="feGaussianBlur53" />
       <feOffset
          result="offset"
@@ -76,52 +80,20 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g9"
-       transform="matrix(0.33202864,0.00985986,-0.00899633,0.31020958,54.366965,49.091412)">
-      <rect
-         style="fill:#ffffff;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.968254"
-         id="rect59"
-         width="93.084602"
-         height="86.980698"
-         x="0"
-         y="0"
-         transform="matrix(3.0091969,-0.09564585,0.08726916,3.2208533,-167.88507,-152.91626)" />
-    </g>
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:0.502257;stroke-dasharray:none;stroke-opacity:0.968254"
-       id="rect54"
-       width="69.461494"
-       height="64.136917"
-       x="8.571455"
-       y="6.5881829" />
-    <rect
-       style="fill:#ff0000;stroke:none;stroke-width:0.251129;stroke-dasharray:none;stroke-opacity:0.968254"
-       id="rect56"
-       width="1.8151958"
-       height="1.9362088"
-       x="7.8453636"
-       y="5.7410893" />
-    <rect
-       style="fill:#ff0000;stroke:none;stroke-width:0.251129;stroke-dasharray:none;stroke-opacity:0.968254"
-       id="rect57"
-       width="1.8151958"
-       height="1.9362088"
-       x="76.822807"
-       y="5.7410893" />
-    <rect
-       style="fill:#ff0000;stroke:none;stroke-width:0.251129;stroke-dasharray:none;stroke-opacity:0.968254"
-       id="rect58"
-       width="1.8151958"
-       height="1.9362088"
-       x="77.064835"
-       y="69.635971" />
+     id="layer1"
+     transform="translate(-26.471295,-53.05126)">
     <g
        id="g54"
-       transform="matrix(1.5802741,0,0,1.5802741,-32.358875,-46.178068)">
+       transform="matrix(12.618893,0,0,12.618893,-845.757,-871.97906)">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.260771"
+         id="rect3"
+         width="7.6661453"
+         height="8.5448923"
+         x="69.120827"
+         y="73.305191" />
       <path
-         style="fill:#e6e6e6;stroke:none;stroke-width:0.311457;stroke-dasharray:none;stroke-opacity:0.968254;filter:url(#filter54)"
+         style="opacity:1;fill:#e6e6e6;stroke:none;stroke-width:0.311457;stroke-dasharray:none;stroke-opacity:0.968254;filter:url(#filter54)"
          d="m 48.192913,77.523824 c 0.07421,-0.319231 23.610387,5.267295 16.27388,14.846279 l 3.475712,4.036417 -5.214038,5.327 -3.758693,-4.123944 c 0.163477,-0.163477 -9.910302,8.694434 -10.776861,-20.085752 z"
          id="path7"
          sodipodi:nodetypes="cccccc"
@@ -132,9 +104,12 @@
          style="fill:#ffffff">
         <path
            style="fill:#ffffff;stroke:#000000;stroke-width:0.586999;stroke-opacity:0.968254;-inkscape-stroke:none"
-           d="m 48.192913,77.523824 c -0.124577,0.0453 25.230512,6.419824 16.231682,15.318512 l 4.239896,4.671284 -4.868601,4.22669 -4.287809,-4.559874 C 59.671558,97.016959 49.059472,106.30401 48.192913,77.523824 Z"
+           d="m 48.192913,77.523824 c -0.124577,0.0453 25.230512,6.419824 16.231682,15.318512 l 4.076645,4.602862 -4.803438,4.286712 -4.189721,-4.551474 C 59.671558,97.016959 49.059472,106.30401 48.192913,77.523824 Z"
            id="path1"
-           sodipodi:nodetypes="cccccc" />
+           sodipodi:nodetypes="cccccc"
+           inkscape:export-filename="PenTool.svg"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
         <path
            style="fill:#ffffff;stroke:#000000;stroke-width:0.586999;stroke-opacity:0.968254;-inkscape-stroke:none"
            d="M 48.173375,77.377188 55.9266,88.024953"
@@ -154,10 +129,13 @@
            rx="0.62025803"
            ry="0.69779027" />
       </g>
+      <rect
+         style="opacity:1;fill:#f9f9ff;fill-opacity:0;stroke:none;stroke-width:0.100056"
+         id="rect2"
+         width="7.6661439"
+         height="8.5448961"
+         x="69.120827"
+         y="73.305191" />
     </g>
-    <path
-       style="fill:none;stroke:#ff0000;stroke-width:0.502257;stroke-dasharray:none;stroke-opacity:0.968254"
-       d="M 8.2084058,6.7091925 78.032933,6.5881745 v 64.3789395 0"
-       id="path58" />
   </g>
 </svg>
