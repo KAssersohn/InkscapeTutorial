@@ -586,6 +586,8 @@ htmltools::HTML('
   
 - I've provided some examples below of some quick and easy annotations with some fake data/figures so you can see what's possible. 
 
+- Plots can be saved as vectors in a few ways in R, by using ggsave, svg(), by exporting as a pdf or saving as an svg from the viewing pane etc...
+
 ##  {.tabset .tabset-fade}
 
 ### Basic formatting
