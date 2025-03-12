@@ -4,7 +4,7 @@ author: "Kat Assersohn"
 date: "`r format(Sys.Date(), '%m-%Y')`"
 output:
   html_document:
-    toc: false
+    toc: true
     toc_float: 
       collapsed: false 
     toc_depth: 4
@@ -311,7 +311,7 @@ Past a certain point this can create significant lag (particularly in Inkscape),
 Try this using <kbd>ctrl + L</kbd> on a selected object and see how it responds. You can also manually remove excess nodes. Learning how to use the pen tool properly is a great way to minimise excessive node use (more on this later).
 </div>
 
-## **Exporting your work**
+### Exporting your work
 
 - The compositor for the journal will convert your image to journal specifications accordingly, but it's best to send them the best quality images you can. 
 
